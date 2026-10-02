@@ -14,18 +14,16 @@ export default function TeamCard({ team }: TeamCardProps) {
   const currentTeam = useTeams((state) => state.currentTeam);
   const changeTeam = useTeams((state) => state.changeTeam);
 
-  const isActive = currentTeam.id === team.id;
 
   return (
     <DropdownMenuItem
-      className={isActive ? "py-1 px-4 mb-2 bg-accent" : "py-1 px-4 mb-2"}
+      className={"py-1 px-4 mb-2 bg-accent"}
       onClick={() => changeTeam(team)}
     >
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center gap-3 text-sm">
           <AvatarWithBadge src={team.avatar} badge={false} /> {team.name}
         </div>
-        {isActive && <Check />}
       </div>
     </DropdownMenuItem>
   );
